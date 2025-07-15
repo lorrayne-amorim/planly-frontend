@@ -7,7 +7,7 @@ import Register from './pages/Register'
 
 function App() {
   return (
-    <BrowserRouter basename="/planly-frontend">
+    <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

@@ -1,7 +1,5 @@
 import type { Board, NewBoard } from "../types/Board";
 
-const API_URL = "https://planly-api-l6ie.onrender.com";
-
 function getAuthHeaders() {
   const token = localStorage.getItem("token");
   return {
@@ -11,13 +9,13 @@ function getAuthHeaders() {
 }
 
 export async function getBoards(): Promise<Board[]> {
-  const response = await fetch(`${API_URL}/boards`, { headers: getAuthHeaders() });
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards`, { headers: getAuthHeaders() });
   if (!response.ok) throw new Error("Erro ao buscar boards");
   return await response.json();
 }
 
 export async function getBoardById(id: string): Promise<Board | null> {
-  const response = await fetch(`${API_URL}/boards/${id}`, { headers: getAuthHeaders() });
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards/${id}`, { headers: getAuthHeaders() });
   if (!response.ok) return null;
   return await response.json();
 }
@@ -32,7 +30,7 @@ export async function createBoard(name: string): Promise<Board> {
     },
   };
 
-  const response = await fetch(`${API_URL}/boards`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards`, {
     method: "POST",
     headers: getAuthHeaders(),
     body: JSON.stringify(newBoard),
@@ -44,7 +42,7 @@ export async function createBoard(name: string): Promise<Board> {
 }
 
 export async function updateBoard(boardId: string, data: Partial<Board>): Promise<Board> {
-  const response = await fetch(`${API_URL}/boards/${boardId}`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards/${boardId}`, {
     method: "PUT",
     headers: getAuthHeaders(),
     body: JSON.stringify(data),
@@ -56,7 +54,7 @@ export async function updateBoard(boardId: string, data: Partial<Board>): Promis
 }
 
 export async function deleteTask(boardId: string, columnId: string, taskId: string) {
-  const response = await fetch(`${API_URL}/boards/${boardId}/tasks?columnId=${columnId}&taskId=${taskId}`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards/${boardId}/tasks?columnId=${columnId}&taskId=${taskId}`, {
     method: "DELETE",
     headers: getAuthHeaders(),
   });
@@ -66,7 +64,7 @@ export async function deleteTask(boardId: string, columnId: string, taskId: stri
 }
 
 export async function deleteBoardById(boardId: string) {
-  const response = await fetch(`${API_URL}/boards/${boardId}`, {
+  const response = await fetch(`${import.meta.env.VITE_API_URL}/boards/${boardId}`, {
     method: "DELETE",
     headers: getAuthHeaders(),
   });
