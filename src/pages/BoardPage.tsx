@@ -132,7 +132,7 @@ export const BoardPage = () => {
             )}
 
             <div className="w-full max-w-full overflow-x-auto pb-6">
-                <div className="flex flex-col sm:flex-row justify-center gap-6 items-start min-w-[600px] sm:min-w-full">
+                <div className="flex flex-col gap-6 sm:flex-row sm:justify-center sm:items-center w-full items-center">
                     {(Object.keys(board.columns) as ColumnType[]).map((key) => {
                         const column = board.columns[key];
                         return (
