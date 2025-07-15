@@ -131,8 +131,8 @@ export const BoardPage = () => {
                 </h2>
             )}
 
-            <div className="w-full max-w-full overflow-x-auto pb-6">
-                <div className="flex flex-col sm:flex-row justify-center gap-6 items-start min-w-[600px] sm:min-w-full">
+            <div className="w-full overflow-x-auto pb-6">
+                <div className="flex flex-row gap-4 items-start w-fit min-w-full">
                     {(Object.keys(board.columns) as ColumnType[]).map((key) => {
                         const column = board.columns[key];
                         return (
