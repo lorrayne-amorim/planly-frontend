@@ -44,7 +44,7 @@ export function Column({
 
   return (
     <div
-      className="w-full sm:min-w-[16rem] sm:max-w-[20rem] bg-white border border-gray-300 rounded-2xl shadow-lg p-5"
+      className="w-full sm:min-w-[20rem] sm:max-w-[20rem] bg-white border border-gray-300 rounded-2xl shadow-lg p-5"
       onDragOver={(e) => e.preventDefault()}
       onDrop={() => onDrop(columnId)}
     >
