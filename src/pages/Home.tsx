@@ -78,7 +78,7 @@ export const Home = () => {
                         </div>
                         <button
                             onClick={() => handleDeleteBoard(board._id)}
-                            className="absolute top-2 right-2 text-red-500 text-sm opacity-0 group-hover:opacity-100 transition-opacity"
+                            className="absolute top-2 right-2 text-red-500 text-sm sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
                             title="Deletar"
                         >
                             X
